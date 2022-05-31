@@ -22,6 +22,7 @@
     "@types/nodemailer": "^6.4.4",
     "@types/pino": "^7.0.5",
     "@types/yup": "^0.29.14",
+    "babel-cli": "^6.26.0",
     "bcrypt": "^5.0.1",
     "config": "^3.3.7",
     "cors": "^2.8.5",

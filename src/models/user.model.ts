@@ -4,7 +4,7 @@ import config from "config";
 import {
     Model, Sequelize, UUIDV4
 } from 'sequelize';
-
+//DataTypes.ENUM(["client", "admin", "student", "freelancer", "general"])
 export interface UserDocument {
     id?:string;
     email: string;
@@ -51,7 +51,7 @@ module.exports = (sequelize:any, DataTypes:any) => {
             unique:true
         },
         role: {
-            type: DataTypes.ENUM(["client", "admin", "student", "freelancer", "general"]),
+            type: DataTypes.STRING,
             allowNull: false,
             defaultValue:"general"
         },

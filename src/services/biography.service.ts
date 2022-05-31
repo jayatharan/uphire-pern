@@ -18,11 +18,7 @@ class BiographyService {
             data.addressId = address.id;
         }
         if(data.company){
-            if(data.company.address){
-                const address = await AddressService.baseApi.createOrUpdate({...data.company.address, userId:biography.userId});
-                data.company.addressId = address.id;
-            }
-            const company = await CompanyService.baseApi.createOrUpdate(data.company);
+            const company = await CompanyService.createOrUpdateCompany(data.company);
             data.companyId = company.id;
         }
         if(biography){

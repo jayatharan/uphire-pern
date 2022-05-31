@@ -1,6 +1,6 @@
 export default {
     host: "localhost",
-    port: 1337,
+    port: 1338,
     db_host: "satao.db.elephantsql.com",
     db_user: "fbepexcn",
     db_database: "fbepexcn",

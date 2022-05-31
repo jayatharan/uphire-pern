@@ -17,8 +17,12 @@ app.use(express.json());
 app.use(deserializeUser);
 app.use(router);
 
-db.sequelize.sync().then(() => {
+db.sequelize.sync({
+    alter:true
+}).then(() => {
     app.listen(port, host, () => {
         log.info(`Server listing at http://${host}:${port}`);
     });
+}).catch(()=>{
+    log.error("Something went wrong");
 })

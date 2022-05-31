@@ -1,0 +1,13 @@
+{
+    "apps": [
+        {
+            "name": "uphire-pern",
+            "exec_mode": "cluster",
+            "instances": "1",
+            "script": "./src/app.ts",
+            "interpreter": "ts-node",
+            "port": 1338,
+            "host": "0.0.0.0"
+        }
+    ]
+}

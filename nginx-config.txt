@@ -1,0 +1,32 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/uphire;
+
+	server_name _;
+
+  location /api/ {
+    proxy_pass http://localhost:1337/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+  }
+  
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+}
+
+//Need to Remove Paste by Jaya for test
+  root /var/www/production;
+        index  index.html index.htm;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+        try_files $uri $uri/ /index.html;

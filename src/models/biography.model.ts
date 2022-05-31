@@ -74,11 +74,11 @@ module.exports = (sequelize:any, DataTypes:any) =>{
         },
         addressId:{
             type: DataTypes.UUID,
-            allowNull: false
+            allowNull: true
         },
         companyId:{
             type: DataTypes.UUID,
-            allowNull: false
+            allowNull: true
         }
     },{
         sequelize,

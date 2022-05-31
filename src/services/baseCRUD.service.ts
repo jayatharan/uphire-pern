@@ -34,21 +34,21 @@ export default class baseCRUDApi<T> {
         }))
     }
 
-    public async get(id:string){
-        return (await this.model.findByPk(id));
+    public async get(id:string, attributes?:string[], include?:any){
+        return (await this.model.findByPk(id,{attributes, include}));
     }
 
     public async create(data:T){
         return (await this.model.create(data));
     }
 
-    public async update(id:string, data:T){
+    public async update(id:string, data:T, attributes?:string[], include?:any){
         await this.model.update(data, {
             where: {
                 id
             }
         });
-        return (await this.get(id));
+        return (await this.get(id,attributes, include));
     }
 
     public async delete(id:string){

@@ -30,7 +30,7 @@ module.exports = (sequelize:any, DataTypes:any) =>{
                 foreignKey: 'userId',
                 as:'user'
             })
-            Company.hasOne(models.Address, {
+            Company.belongsTo(models.Address, {
                 foreignKey: 'addressId',
                 as:'address'
             })

@@ -44,7 +44,7 @@ export async function getUserDetails(req: Request, res: Response) {
     try{
         const user = get(req, "user");
         const currentUser = await getUserById(user.id);
-        const biography = await BiographyService.baseApi.find({userId:user.id},undefined, { association: 'address' })
+        const biography = await BiographyService.baseApi.find({userId:user.id},undefined, [{association:'address'}, {association:'company', include:'address'}])
         res.send({
             user:currentUser,
             biography

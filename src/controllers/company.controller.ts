@@ -21,7 +21,7 @@ export async function createCompany(req: Request, res: Response){
         const user = get(req, "user");
         const data = req.body as CompanyDocument;
         data.userId = user.id;
-        const response = await CompanyService.baseApi.create(data);
+        const response = await CompanyService.createOrUpdateCompany(data);
         res.send(response);
     }catch (e) {
         log.error(e);
@@ -33,7 +33,8 @@ export async function updateCompany(req: Request, res: Response){
     try{
         const data = req.body as CompanyDocument;
         const id = req.params.id as string;
-        const response = await CompanyService.baseApi.update(id, data);
+        data.id = id;
+        const response = await CompanyService.createOrUpdateCompany(data);
         res.send(response);
     }catch (e) {
         log.error(e);
@@ -55,7 +56,7 @@ export async function deleteCompany(req: Request, res: Response) {
 export async function getCompany(req: Request, res: Response) {
     try{
         const id = req.params.id as string;
-        const response = await CompanyService.baseApi.get(id);
+        const response = await CompanyService.baseApi.get(id, undefined, 'address');
         res.send(response);
     }catch (e) {
         log.error(e);

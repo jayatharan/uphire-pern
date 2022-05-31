@@ -5,6 +5,7 @@ import user from "./user.routes";
 import session from "./session.routes";
 import address from "./address.routes";
 import company from "./company.routes";
+import biography from "./biography.routes";
 
 const router = express.Router();
 
@@ -15,5 +16,6 @@ router.use("/users", user);
 router.use("/sessions", session);
 router.use("/address", address);
 router.use("/company", company);
+router.use("/biography", biography);
 
 export default router;

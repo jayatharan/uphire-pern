@@ -10,35 +10,20 @@ class BiographyService {
     baseApi = new baseCRUDApi<BiographyDocument>(Biography);
 
     public async updateBiography(data:BiographyDocument){
-        let biography = await Biography.findOne({
-            where:{
-                userId:data.userId
-            }
+        let biography = await this.baseApi.find({
+            userId:data.userId
         })
         if(data.address){
-            if(!data.address.id){
-                const address = await AddressService.baseApi.create({...data.address, userId:biography.userId});
-                data.addressId = address.id;
-            }else{
-                await AddressService.baseApi.update(data.address.id, data.address)
-            }
+            const address = await AddressService.baseApi.createOrUpdate(data.address);
+            data.addressId = address.id;
         }
         if(data.company){
             if(data.company.address){
-                if(!data.company.address.id){
-                    const address = await AddressService.baseApi.create({...data.company.address, userId:biography.userId});
-                    data.company.addressId = address.id;
-                }else{
-                    await AddressService.baseApi.update(data.company.address.id, data.company.address)
-                }
+                const address = await AddressService.baseApi.createOrUpdate({...data.company.address, userId:biography.userId});
+                data.company.addressId = address.id;
             }
-
-            if(!data.company.id){
-                const company = await CompanyService.baseApi.create(data.company);
-                data.companyId = company.id;
-            }else{
-                await CompanyService.baseApi.update(data.company.id, data.company);
-            }
+            const company = await CompanyService.baseApi.createOrUpdate(data.company);
+            data.companyId = company.id;
         }
         if(biography){
             biography = await this.baseApi.update(biography.id, data);

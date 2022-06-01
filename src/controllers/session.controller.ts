@@ -17,7 +17,7 @@ export async function createUserSessionHandler(req: Request, res: Response) {
         const user = await validatePassword(req.body);    
         if(!user) return res.status(401).send("Invalid usename or password");
         const session = await createSession(user.id, req.get("user-agent") || "unknown");
-
+        
         const accessToken = createAccessToken({
             user, session
         })

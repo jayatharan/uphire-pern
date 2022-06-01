@@ -1,6 +1,12 @@
 import express from "express";
 import {
-    createUserHandler, updateUserHandler, updateUserBiography, getUserDetails
+    createUserHandler, 
+    updateUserHandler, 
+    updateUserBiography, 
+    getUserDetails,
+    subscribeService,
+    getMySubscriptions,
+    unSubscribe
 } from '../controllers/user.controller'
 import { 
     createUserSchema, updateUserSchema
@@ -33,5 +39,23 @@ router.post(
     requiredUser,
     updateUserBiography
 );
+
+router.get(
+    "/subscriptions",
+    requiredUser,
+    getMySubscriptions
+)
+
+router.post(
+    "/subscriptions",
+    requiredUser,
+    subscribeService
+)
+
+router.delete(
+    "/subscriptions/:service",
+    requiredUser,
+    unSubscribe
+)
 
 export default router;

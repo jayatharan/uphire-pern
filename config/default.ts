@@ -23,7 +23,7 @@ export default {
     -----END CERTIFICATE-----`,
     accessTokenTtl: "1440m",
     refreshTokenTtl: "1y",
-    googleClientId:"359230376538-j79misgqm7inonvgpgfkvafa440li4fe.apps.googleusercontent.com",
+    googleClientId: "359230376538-j79misgqm7inonvgpgfkvafa440li4fe.apps.googleusercontent.com",
 }
 
 // db_host: "satao.db.elephantsql.com",

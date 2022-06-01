@@ -5,6 +5,8 @@ import BiographyService from "../services/biography.service";
 import log from "../logger";
 import { get } from "lodash";
 import { BiographyDocument } from "../models/biography.model";
+import SubscriptionService  from "../services/subscription.service";
+import { SubscriptionDocument } from "../models/subscription.model";
 
 export async function createUserHandler(req: Request, res: Response) {
     try{
@@ -52,5 +54,41 @@ export async function getUserDetails(req: Request, res: Response) {
     }catch (e) {
         log.error(e);
         return res.status(400).send(e)
+    }
+}
+
+export async function subscribeService(req: Request, res: Response) {
+    try{
+        const user = get(req, "user");
+        let data = req.body as SubscriptionDocument;
+        data.userId = user.id;
+        const subscription = await SubscriptionService.subscribeService(data);
+        return res.send(subscription);
+    }catch (e){
+        log.error(e);
+        return res.status(400).send(e);
+    }
+}
+
+export async function unSubscribe(req: Request, res: Response) {
+    try{
+        const service = req.params.service as unknown as string;
+        const user = get(req, "user");
+        const result = await SubscriptionService.unSubscribe(user.id, service);
+        return res.send(result);
+    }catch (e){
+        log.error(e);
+        return res.status(400).send(e);
+    }
+}
+
+export async function getMySubscriptions(req: Request, res: Response) {
+    try{
+        const user = get(req, "user");
+        const subscriptions = await SubscriptionService.getUserSubscriptions(user.id);
+        return res.send(subscriptions);
+    }catch (e){
+        log.error(e);
+        return res.status(400).send(e);
     }
 }

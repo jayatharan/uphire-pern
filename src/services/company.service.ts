@@ -10,7 +10,7 @@ class CompanyService {
 
     public async createOrUpdateCompany(data:CompanyDocument){
         if(data.address){
-            const address = await AddressService.baseApi.createOrUpdate(data.address);
+            const address = await AddressService.baseApi.createOrUpdate({...data.address, userId:data.userId});
             data.addressId = address.id;
         }
         const company = await this.baseApi.createOrUpdate(data);

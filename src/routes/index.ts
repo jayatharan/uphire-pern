@@ -12,6 +12,7 @@ const router = express.Router();
 router.get("/", (req: Request, res: Response) => res.send("Welcome to uphire server"));
 router.get("/health-check", (req: Request, res: Response) => res.sendStatus(200));
 
+
 router.use("/users", user);
 router.use("/sessions", session);
 router.use("/address", address);

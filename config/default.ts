@@ -29,7 +29,7 @@ export default {
 // db_host: "satao.db.elephantsql.com",
 // db_user: "fbepexcn",
 // db_database: "fbepexcn",
-// db_password: "MbsSyCtya3t7DlIB5P6238Bs9X9megrW"
+// db_password: "MbsSyCtya3t7DlIB5P6238Bs9X9megrW",
 
 //      db_host: "localhost",
 //      db_user: "uphire",

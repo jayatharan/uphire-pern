@@ -16,7 +16,6 @@ export interface BiographyDocument{
     jobRole?:string;
     addressId?:string;
     address?:AddressDocument;
-    postCode?:string;
     image?:string;
     createdAt?: Date;
     updatedAt?: Date;

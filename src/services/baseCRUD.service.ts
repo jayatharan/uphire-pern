@@ -62,6 +62,7 @@ export default class baseCRUDApi<T> {
     public async createOrUpdate(data:any){
         let response:T;
         if(!data.id){
+            delete data.id; 
             response = await this.create(data);
         }else{
             response = await this.update(data.id, data);

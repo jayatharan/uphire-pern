@@ -6,7 +6,10 @@ import {
     getUserDetails,
     subscribeService,
     getMySubscriptions,
-    unSubscribe
+    unSubscribe,
+    addUserProjectDetail,
+    addUserEducationalDetail,
+    addUserProfessionalDetail
 } from '../controllers/user.controller'
 import { 
     createUserSchema, updateUserSchema
@@ -56,6 +59,24 @@ router.delete(
     "/subscriptions/:service",
     requiredUser,
     unSubscribe
+)
+
+router.post(
+    "/project-detail",
+    requiredUser,
+    addUserProjectDetail
+)
+
+router.post(
+    "/educational-detail",
+    requiredUser,
+    addUserEducationalDetail
+)
+
+router.post(
+    "/professional-detail",
+    requiredUser,
+    addUserProfessionalDetail
 )
 
 export default router;

@@ -7,6 +7,13 @@ import { get } from "lodash";
 import { BiographyDocument } from "../models/biography.model";
 import SubscriptionService  from "../services/subscription.service";
 import { SubscriptionDocument } from "../models/subscription.model";
+import { ProjectDetailDocument } from "../models/projectDetail.model";
+import ProjectDetailService from "../services/projectDetail.service";
+import { EducationalDetailDocument } from "../models/educationalDetail.model";
+import EducationalDetailService from "../services/educationalDetail.service";
+import { ProfessionalDetailDocument } from "../models/professionalDetail.model";
+import ProfessionalDetailService from "../services/professionalDetail.service";
+
 
 export async function createUserHandler(req: Request, res: Response) {
     try{
@@ -90,5 +97,44 @@ export async function getMySubscriptions(req: Request, res: Response) {
     }catch (e){
         log.error(e);
         return res.status(400).send(e);
+    }
+}
+
+export async function addUserProjectDetail(req: Request, res:Response) {
+    try{
+        const user = get(req, "user");
+        let data = req.body as ProjectDetailDocument;
+        data.userId = user.id;
+        const projectDetail = await ProjectDetailService.baseApi.create(data);
+        return res.send(projectDetail);
+    }catch (e) {
+        log.error(e);
+        return res.status(400).send(e)
+    }
+}
+
+export async function addUserEducationalDetail(req: Request, res:Response) {
+    try{
+        const user = get(req, "user");
+        let data = req.body as EducationalDetailDocument;
+        data.userId = user.id;
+        const EducationalDetail = await EducationalDetailService.createOrUpdateEducationalDetail(data);
+        return res.send(EducationalDetail);
+    }catch (e) {
+        log.error(e);
+        return res.status(400).send(e)
+    }
+}
+
+export async function addUserProfessionalDetail(req: Request, res:Response) {
+    try{
+        const user = get(req, "user");
+        let data = req.body as ProfessionalDetailDocument;
+        data.userId = user.id;
+        const ProfessionalDetail = await ProfessionalDetailService.createOrUpdateProfessionalDetail(data);
+        return res.send(ProfessionalDetail);
+    }catch (e) {
+        log.error(e);
+        return res.status(400).send(e)
     }
 }

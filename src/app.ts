@@ -37,9 +37,7 @@ app.post('/upload-file', upload.single('file'), async (req:Request, res:Response
     }
 })
 
-db.sequelize.sync({
-    alter:true
-}).then(() => {
+db.sequelize.sync({alter:true}).then(() => {
     app.listen(port, host, () => {
         log.info(`Server listing at http://${host}:${port}`);
     });

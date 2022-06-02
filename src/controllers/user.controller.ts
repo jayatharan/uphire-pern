@@ -164,7 +164,7 @@ export async function addUserProfessionalDetail(req: Request, res:Response) {
 export async function getUserProfessionalDetails(req: Request, res:Response) {
     try{
         const user = get(req, "user");
-        const userProfessionalDetails = (await ProfessionalDetailService.baseApi.list(undefined, undefined, {userId:user.id})).rows;
+        const userProfessionalDetails = (await ProfessionalDetailService.baseApi.list(undefined, undefined, {userId:user.id}, undefined, undefined,  [{association:'company', include:'address'}])).rows;
         return res.send(userProfessionalDetails);
     }catch (e) {
         log.error(e);

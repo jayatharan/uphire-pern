@@ -1,10 +1,10 @@
 export default {
     host: "localhost",
     port: 1338,
-    db_host: "localhost",
-    db_user: "uphire",
-    db_database: "uphire",
-    db_password: "user@123",
+    db_host: "satao.db.elephantsql.com",
+    db_user: "fbepexcn",
+    db_database: "fbepexcn",
+    db_password: "MbsSyCtya3t7DlIB5P6238Bs9X9megrW",
     saltWorkFactor: 10,
     privateKey: `-----BEGIN RSA PRIVATE KEY-----
     MIICWwIBAAKBgQCQNBc4IP2ewViqE+ZHbnqGoCZFyAUtrxKmO4k/boSvBisJH6BX

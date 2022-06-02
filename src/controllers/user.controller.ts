@@ -113,6 +113,17 @@ export async function addUserProjectDetail(req: Request, res:Response) {
     }
 }
 
+export async function getUserProjectDetails(req: Request, res:Response){
+    try{
+        const user = get(req, "user");
+        const userProjectDetails = (await ProjectDetailService.baseApi.list(undefined, undefined, {userId:user.id})).rows;
+        res.send(userProjectDetails);
+    }catch (e) {
+        log.error(e);
+        return res.status(400).send(e)
+    }
+}
+
 export async function addUserEducationalDetail(req: Request, res:Response) {
     try{
         const user = get(req, "user");
@@ -126,6 +137,17 @@ export async function addUserEducationalDetail(req: Request, res:Response) {
     }
 }
 
+export async function getUserEducationalDetails(req: Request, res:Response) {
+    try{
+        const user = get(req, "user");
+        const userEducationalDetails = (await EducationalDetailService.baseApi.list(undefined, undefined, {userId:user.id}, undefined, undefined, 'address')).rows;
+        return res.send(userEducationalDetails);
+    }catch (e) {
+        log.error(e);
+        return res.status(400).send(e)
+    }
+}
+
 export async function addUserProfessionalDetail(req: Request, res:Response) {
     try{
         const user = get(req, "user");
@@ -133,6 +155,17 @@ export async function addUserProfessionalDetail(req: Request, res:Response) {
         data.userId = user.id;
         const ProfessionalDetail = await ProfessionalDetailService.createOrUpdateProfessionalDetail(data);
         return res.send(ProfessionalDetail);
+    }catch (e) {
+        log.error(e);
+        return res.status(400).send(e)
+    }
+}
+
+export async function getUserProfessionalDetails(req: Request, res:Response) {
+    try{
+        const user = get(req, "user");
+        const userProfessionalDetails = (await ProfessionalDetailService.baseApi.list(undefined, undefined, {userId:user.id})).rows;
+        return res.send(userProfessionalDetails);
     }catch (e) {
         log.error(e);
         return res.status(400).send(e)

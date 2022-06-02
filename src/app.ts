@@ -21,7 +21,7 @@ app.use(deserializeUser);
 app.use(router);
 
 app.use('/static', express.static('static'));
-app.use('/postmon', express.static('postmon'));
+app.use('/postmon', express.static('./UPHIRE_PERN.postman_collection.json'));
 
 app.post('/upload-file', upload.single('file'), async (req:Request, res:Response) => {
     try{

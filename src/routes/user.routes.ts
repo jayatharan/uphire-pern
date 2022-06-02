@@ -9,7 +9,10 @@ import {
     unSubscribe,
     addUserProjectDetail,
     addUserEducationalDetail,
-    addUserProfessionalDetail
+    addUserProfessionalDetail,
+    getUserEducationalDetails,
+    getUserProfessionalDetails,
+    getUserProjectDetails
 } from '../controllers/user.controller'
 import { 
     createUserSchema, updateUserSchema
@@ -61,16 +64,34 @@ router.delete(
     unSubscribe
 )
 
+router.get(
+    "/project-detail",
+    requiredUser,
+    getUserProjectDetails
+)
+
 router.post(
     "/project-detail",
     requiredUser,
     addUserProjectDetail
 )
 
+router.get(
+    "/educational-detail",
+    requiredUser,
+    getUserEducationalDetails
+)
+
 router.post(
     "/educational-detail",
     requiredUser,
     addUserEducationalDetail
+)
+
+router.get(
+    "/professional-detail",
+    requiredUser,
+    getUserProfessionalDetails
 )
 
 router.post(

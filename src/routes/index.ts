@@ -1,27 +1,29 @@
 import express from "express";
 import { Request, Response } from "express";
 
-import user from "./user.routes";
-import session from "./session.routes";
-import address from "./address.routes";
-import company from "./company.routes";
-import biography from "./biography.routes";
-import projectDetail from "./projectDetail.routes";
-import educationalDetail from "./educationalDetail.routes";
-import professionalDetail from "./professionalDetail.routes";
+import userRoutes from "./user.routes";
+import sessionRoutes from "./session.routes";
+import addressRoutes from "./address.routes";
+import companyRoutes from "./company.routes";
+import biographyRoutes from "./biography.routes";
+import projectDetailRoutes from "./projectDetail.routes";
+import educationalDetailRoutes from "./educationalDetail.routes";
+import professionalDetailRoutes from "./professionalDetail.routes";
+import projectRoutes from "./project.routes";
 
 const router = express.Router();
 
 router.get("/", (req: Request, res: Response) => res.send("Welcome to uphire server"));
 router.get("/health-check", (req: Request, res: Response) => res.sendStatus(200));
 
-router.use("/users", user);
-router.use("/sessions", session);
-router.use("/address", address);
-router.use("/company", company);
-router.use("/biography", biography);
-router.use("/project-details", projectDetail);
-router.use("/educational-details", educationalDetail);
-router.use("/professional-details", professionalDetail);
+router.use("/users", userRoutes);
+router.use("/sessions", sessionRoutes);
+router.use("/address", addressRoutes);
+router.use("/company", companyRoutes);
+router.use("/biography", biographyRoutes);
+router.use("/project-details", projectDetailRoutes);
+router.use("/educational-details", educationalDetailRoutes);
+router.use("/professional-details", professionalDetailRoutes);
+router.use("/projects", projectRoutes);
 
 export default router;

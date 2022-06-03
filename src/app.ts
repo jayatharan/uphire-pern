@@ -12,7 +12,20 @@ import { get } from "lodash";
 const port = config.get("port") as number;
 const host = config.get("host") as string;
 
+const AdminBro = require('admin-bro')
+const AdminBroExpress = require('admin-bro-expressjs')
+const AdminBroSequelize = require('@admin-bro/sequelize')
+
 const app = express();
+
+AdminBro.registerAdapter(AdminBroSequelize)
+
+const adminBro = new AdminBro({
+    databases: [db],
+    rootPath: '/admin',
+})
+
+const adminBroRouter = AdminBroExpress.buildRouter(adminBro)
 
 app.use(express.urlencoded({extended: true}));
 app.use(cors())
@@ -36,6 +49,8 @@ app.post('/upload-file', upload.single('file'), async (req:Request, res:Response
         return res.status(400).send(e);
     }
 })
+
+app.use(adminBro.options.rootPath, adminBroRouter)
 
 db.sequelize.sync({alter:true}).then(() => {
     app.listen(port, host, () => {

@@ -38,7 +38,8 @@ export default class baseCRUDApi<T> {
         return (await this.model.findByPk(id,{attributes, include}));
     }
 
-    public async create(data:T){
+    public async create(data:any){
+        delete data.id; 
         return (await this.model.create(data));
     }
 
@@ -62,7 +63,6 @@ export default class baseCRUDApi<T> {
     public async createOrUpdate(data:any){
         let response:T;
         if(!data.id){
-            delete data.id; 
             response = await this.create(data);
         }else{
             response = await this.update(data.id, data);

@@ -438,6 +438,11 @@
 								{
 									"key": "limit",
 									"value": "100"
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
 								}
 							]
 						}
@@ -663,7 +668,17 @@
 					"name": "List",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/projects",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
 					},
 					"response": []
 				},
@@ -674,7 +689,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Calcey Technologies\",\r\n    \"description\": \"Software Company\",\r\n    \"addressId\": \"059b5278-6e5e-4687-82ee-edbb1c31175e\"\r\n}",
+							"raw": "{\r\n    \"title\":\"Test\",\r\n    \"description\":\"Test\",\r\n    \"category\":\"Test\",\r\n    \"budget\":100000,\r\n    \"hourly\":100,\r\n    \"timeline\":\"100 Days max\",\r\n    \"amount\":100000,\r\n    \"rate\":10\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -682,13 +697,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{server}}/company",
+							"raw": "http://{{server}}/projects",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
 							],
 							"path": [
-								"company"
+								"projects"
 							]
 						}
 					},
@@ -709,13 +724,155 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{server}}/company/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"raw": "http://{{server}}/projects/53697ed2-1888-4840-a42c-859bc65b0e02",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
 							],
 							"path": [
-								"company",
+								"projects",
+								"53697ed2-1888-4840-a42c-859bc65b0e02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{server}}/projects/bedf02c4-5c30-489d-93bc-d05a1b7ed7a8",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"projects",
+								"bedf02c4-5c30-489d-93bc-d05a1b7ed7a8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/projects/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"projects",
+								"53697ed2-1888-4840-a42c-859bc65b0e02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/projects/my-projects",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"projects",
+								"my-projects"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project Proposal",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/project-proposals",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project-proposals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectId\":\"bedf02c4-5c30-489d-93bc-d05a1b7ed7a8\",\r\n    \"description\":\"Test\",\r\n    \"amount\":90000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/project-proposals",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project-proposals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"53697ed2-1888-4840-a42c-859bc65b0e02\",\r\n    \"userId\": \"72d113c5-bdc5-4251-be76-f993f18028a9\",\r\n    \"name\": \"Calcey Technologies\",\r\n    \"description\": \"Software Company\",\r\n    \"addressId\": \"4bd503c3-d214-4b1b-8060-7131323506e4\",\r\n    \"createdAt\": \"2022-05-31T07:46:32.343Z\",\r\n    \"updatedAt\": \"2022-05-31T09:15:00.076Z\",\r\n    \"address\": {\r\n        \"id\": \"4bd503c3-d214-4b1b-8060-7131323506e4\",\r\n        \"userId\": \"72d113c5-bdc5-4251-be76-f993f18028a9\",\r\n        \"address\": \"Test Address1\",\r\n        \"city\": \"Vavuniya\",\r\n        \"country\": \"SriLanka\",\r\n        \"postCode\": \"43000\",\r\n        \"createdAt\": \"2022-05-31T07:45:30.241Z\",\r\n        \"updatedAt\": \"2022-05-31T08:59:42.374Z\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/project-proposals/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project-proposals",
 								"53697ed2-1888-4840-a42c-859bc65b0e02"
 							]
 						}
@@ -728,13 +885,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{server}}/company",
+							"raw": "http://{{server}}/project-proposals",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
 							],
 							"path": [
-								"company"
+								"project-proposals"
 							]
 						}
 					},
@@ -746,14 +903,33 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://{{server}}/company/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"raw": "http://{{server}}/project-proposals/53697ed2-1888-4840-a42c-859bc65b0e02",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
 							],
 							"path": [
-								"company",
+								"project-proposals",
 								"53697ed2-1888-4840-a42c-859bc65b0e02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Project Proposals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/project-proposals/my-project-proposals",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project-proposals",
+								"my-project-proposals"
 							]
 						}
 					},
@@ -892,13 +1068,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{server}}/projects",
+							"raw": "http://{{server}}/educational-details",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
 							],
 							"path": [
-								"projects"
+								"educational-details"
 							]
 						}
 					},
@@ -919,13 +1095,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{server}}/projects",
+							"raw": "http://{{server}}/educational-details",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
 							],
 							"path": [
-								"projects"
+								"educational-details"
 							]
 						}
 					},
@@ -946,13 +1122,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{server}}/projects/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"raw": "http://{{server}}/educational-details/53697ed2-1888-4840-a42c-859bc65b0e02",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
 							],
 							"path": [
-								"projects",
+								"educational-details",
 								"53697ed2-1888-4840-a42c-859bc65b0e02"
 							]
 						}
@@ -965,13 +1141,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{server}}/projects/:id",
+							"raw": "http://{{server}}/educational-details/:id",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
 							],
 							"path": [
-								"projects",
+								"educational-details",
 								":id"
 							],
 							"variable": [
@@ -990,33 +1166,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://{{server}}/projects/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"raw": "http://{{server}}/educational-details/53697ed2-1888-4840-a42c-859bc65b0e02",
 							"protocol": "http",
 							"host": [
 								"{{server}}"
 							],
 							"path": [
-								"projects",
+								"educational-details",
 								"53697ed2-1888-4840-a42c-859bc65b0e02"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get My Projects",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://{{server}}/projects/my-projects",
-							"protocol": "http",
-							"host": [
-								"{{server}}"
-							],
-							"path": [
-								"projects",
-								"my-projects"
 							]
 						}
 					},
@@ -1163,6 +1320,34 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Fetch All",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"page\":1,\r\n    \"limit\":10,\r\n    \"include\":\"user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/fetch/address",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"fetch",
+						"address"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -1170,7 +1355,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM5NGNiYjIzLWNlNGEtNGE1Ni1iMmQ1LWUzODUzMDAyYmNlNSIsIm5hbWUiOiJKYXlhdGhhcmFuIiwiZW1haWwiOiJpbmRyYW5AdXBoaXJlLmNvbSIsInJvbGUiOiJnZW5lcmFsIiwiZW1haWxWZXJpZmljYXRpb25HdWlkIjoiOGYzNTBmY2ItMTY2Yy00MDhmLTgzN2QtMzZjZmFhNWM5YTcyIiwiZW1haWxWZXJpZmllZCI6ZmFsc2UsImFsdGVybmF0aXZlRW1haWwiOiJqYXlhdGhhcmFuQHVwaGlyZS5jb20iLCJtb2JpbGVOdW1iZXIiOiIwNzcxMjM0NTY3IiwiaW1hZ2UiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjItMDYtMDJUMTU6MTM6NDQuNDM3WiIsInVwZGF0ZWRBdCI6IjIwMjItMDYtMDJUMTU6MTM6NDQuNDM3WiIsInNlc3Npb24iOiIwNzNlYmVmOS05ZjdiLTRiZTYtOWM3MC04ZWRlMmJlNjUxZjYiLCJpYXQiOjE2NTQxODU3MDcsImV4cCI6MTY1NDI3MjEwN30.BZdjg_gnxubOVNBQgSrVh-pU8pjPFuN4dh4jxrGGQhc",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJlOGE0M2Q1LWM5OTAtNDJkYy1hYTZmLTJjZDdjMWUwZjVjYyIsIm5hbWUiOiJKYXlhdGhhcmFuIiwiZW1haWwiOiJpbmRyYW5AdXBoaXJlLmNvbSIsInJvbGUiOiJjbGllbnQiLCJlbWFpbFZlcmlmaWNhdGlvbkd1aWQiOiI5NTY1NjNmYy01MTZjLTRhYTEtOWIzOC1kNjU0NzhjYjE0ZGQiLCJlbWFpbFZlcmlmaWVkIjpmYWxzZSwiYWx0ZXJuYXRpdmVFbWFpbCI6InRlc3RAdXBoaXJlLmNvbSIsIm1vYmlsZU51bWJlciI6IjA3NzcxMjM0NTYiLCJpbWFnZSI6bnVsbCwiY3JlYXRlZEF0IjoiMjAyMi0wNi0wMlQxNToyMDowNy4yMTJaIiwidXBkYXRlZEF0IjoiMjAyMi0wNi0wMlQxNToyMDowNy4yMTJaIiwic2Vzc2lvbiI6IjI4NGM5MDY5LTg2ZjEtNGJkNi04NWFmLWQ1MTEwN2IwYzg0ZCIsImlhdCI6MTY1NDQyMzAxNywiZXhwIjoxNjU0NTA5NDE3fQ.XOlfyBKr_vD3jBvktk6hqZhVCrtfImHF8QF3JZ6GYMo",
 				"type": "string"
 			}
 		]

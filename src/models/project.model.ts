@@ -2,6 +2,7 @@ import {
     Model, Sequelize, UUIDV4
 } from 'sequelize';
 import { UserDocument } from "./user.model";
+import { ProjectProposalDocument } from './projectProposal.model';
 
 export interface ProjectDocument {
     id:string;
@@ -18,6 +19,7 @@ export interface ProjectDocument {
     amount?: number;
     rate: number; 
     remainingAmount?: number;
+    projectProposals?:ProjectProposalDocument[];
     createdAt?: Date;
     updatedAt?: Date;
 }
@@ -43,6 +45,10 @@ module.exports = (sequelize:any, DataTypes:any) => {
                 foreignKey: 'userId',
                 as:'user'
             });
+            Project.hasMany(models.ProjectProposal, {
+                foreignKey: 'projectId',
+                as:'projectProposals'
+            })
         }
     };
     Project.init({

@@ -7,7 +7,7 @@ import { ListQueryParams } from "../services/baseCRUD.service";
 
 export async function getAllAddress(req: Request, res: Response) {
     try{
-        const quarryParams = req.query as ListQueryParams;
+        let quarryParams = req.query as ListQueryParams;
         const data = await AddressService.baseApi.list(quarryParams.page, quarryParams.limit);
         return res.send(data);
     }catch (e) {

@@ -56,7 +56,7 @@ export async function deleteProject(req: Request, res: Response) {
 export async function getProject(req: Request, res: Response) {
     try{
         const id = req.params.id as string;
-        const response = await ProjectService.baseApi.get(id, undefined, 'user');
+        const response = await ProjectService.baseApi.get(id, undefined, [{association:'user'}, {association:'projectProposals'}]);
         res.send(response);
     }catch (e) {
         log.error(e);

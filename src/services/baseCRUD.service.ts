@@ -1,6 +1,10 @@
 export interface ListQueryParams{
     page?:number;
     limit?:number;
+    where?:any;
+    order?:any;
+    attributes?:any;
+    include?:any;
 }
 
 export default class baseCRUDApi<T> {
@@ -22,8 +26,7 @@ export default class baseCRUDApi<T> {
             attributes,
             offset,
             limit
-        }
-        ))
+        }))
     }
 
     public async find(where?:any, attributes?:string[], include?:any){

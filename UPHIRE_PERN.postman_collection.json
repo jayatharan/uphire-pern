@@ -804,6 +804,290 @@
 			]
 		},
 		{
+			"name": "Job",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/jobs",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Test\",\r\n    \"description\":\"Test\",\r\n    \"category\":\"Test\",\r\n    \"budget\":100000,\r\n    \"hourly\":100,\r\n    \"timeline\":\"100 Days max\",\r\n    \"amount\":100000,\r\n    \"rate\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/jobs",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"53697ed2-1888-4840-a42c-859bc65b0e02\",\r\n    \"userId\": \"72d113c5-bdc5-4251-be76-f993f18028a9\",\r\n    \"name\": \"Calcey Technologies\",\r\n    \"description\": \"Software Company\",\r\n    \"addressId\": \"4bd503c3-d214-4b1b-8060-7131323506e4\",\r\n    \"createdAt\": \"2022-05-31T07:46:32.343Z\",\r\n    \"updatedAt\": \"2022-05-31T09:15:00.076Z\",\r\n    \"address\": {\r\n        \"id\": \"4bd503c3-d214-4b1b-8060-7131323506e4\",\r\n        \"userId\": \"72d113c5-bdc5-4251-be76-f993f18028a9\",\r\n        \"address\": \"Test Address1\",\r\n        \"city\": \"Vavuniya\",\r\n        \"country\": \"SriLanka\",\r\n        \"postCode\": \"43000\",\r\n        \"createdAt\": \"2022-05-31T07:45:30.241Z\",\r\n        \"updatedAt\": \"2022-05-31T08:59:42.374Z\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/jobs/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"jobs",
+								"53697ed2-1888-4840-a42c-859bc65b0e02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{server}}/jobs/bedf02c4-5c30-489d-93bc-d05a1b7ed7a8",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"jobs",
+								"bedf02c4-5c30-489d-93bc-d05a1b7ed7a8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/jobs/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"jobs",
+								"53697ed2-1888-4840-a42c-859bc65b0e02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/jobs/my-jobs",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"jobs",
+								"my-jobs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Team",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/teams",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Test\",\r\n    \"description\":\"Test\",\r\n    \"category\":\"Test\",\r\n    \"budget\":100000,\r\n    \"hourly\":100,\r\n    \"timeline\":\"100 Days max\",\r\n    \"amount\":100000,\r\n    \"rate\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/teams",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"53697ed2-1888-4840-a42c-859bc65b0e02\",\r\n    \"userId\": \"72d113c5-bdc5-4251-be76-f993f18028a9\",\r\n    \"name\": \"Calcey Technologies\",\r\n    \"description\": \"Software Company\",\r\n    \"addressId\": \"4bd503c3-d214-4b1b-8060-7131323506e4\",\r\n    \"createdAt\": \"2022-05-31T07:46:32.343Z\",\r\n    \"updatedAt\": \"2022-05-31T09:15:00.076Z\",\r\n    \"address\": {\r\n        \"id\": \"4bd503c3-d214-4b1b-8060-7131323506e4\",\r\n        \"userId\": \"72d113c5-bdc5-4251-be76-f993f18028a9\",\r\n        \"address\": \"Test Address1\",\r\n        \"city\": \"Vavuniya\",\r\n        \"country\": \"SriLanka\",\r\n        \"postCode\": \"43000\",\r\n        \"createdAt\": \"2022-05-31T07:45:30.241Z\",\r\n        \"updatedAt\": \"2022-05-31T08:59:42.374Z\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/teams/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"teams",
+								"53697ed2-1888-4840-a42c-859bc65b0e02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{server}}/teams/bedf02c4-5c30-489d-93bc-d05a1b7ed7a8",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"teams",
+								"bedf02c4-5c30-489d-93bc-d05a1b7ed7a8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/teams/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"teams",
+								"53697ed2-1888-4840-a42c-859bc65b0e02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/teams/my-teams",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"teams",
+								"my-teams"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Project Proposal",
 			"item": [
 				{
@@ -929,6 +1213,286 @@
 							],
 							"path": [
 								"project-proposals",
+								"my-project-proposals"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job Proposal",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/job-proposals",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"job-proposals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectId\":\"bedf02c4-5c30-489d-93bc-d05a1b7ed7a8\",\r\n    \"description\":\"Test\",\r\n    \"amount\":90000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/job-proposals",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"job-proposals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"53697ed2-1888-4840-a42c-859bc65b0e02\",\r\n    \"userId\": \"72d113c5-bdc5-4251-be76-f993f18028a9\",\r\n    \"name\": \"Calcey Technologies\",\r\n    \"description\": \"Software Company\",\r\n    \"addressId\": \"4bd503c3-d214-4b1b-8060-7131323506e4\",\r\n    \"createdAt\": \"2022-05-31T07:46:32.343Z\",\r\n    \"updatedAt\": \"2022-05-31T09:15:00.076Z\",\r\n    \"address\": {\r\n        \"id\": \"4bd503c3-d214-4b1b-8060-7131323506e4\",\r\n        \"userId\": \"72d113c5-bdc5-4251-be76-f993f18028a9\",\r\n        \"address\": \"Test Address1\",\r\n        \"city\": \"Vavuniya\",\r\n        \"country\": \"SriLanka\",\r\n        \"postCode\": \"43000\",\r\n        \"createdAt\": \"2022-05-31T07:45:30.241Z\",\r\n        \"updatedAt\": \"2022-05-31T08:59:42.374Z\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/job-proposals/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"job-proposals",
+								"53697ed2-1888-4840-a42c-859bc65b0e02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/job-proposals",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"job-proposals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/job-proposals/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"job-proposals",
+								"53697ed2-1888-4840-a42c-859bc65b0e02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Project Proposals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/project-proposals/my-project-proposals",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"project-proposals",
+								"my-project-proposals"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Team Proposal",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/team-proposals",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"team-proposals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectId\":\"bedf02c4-5c30-489d-93bc-d05a1b7ed7a8\",\r\n    \"description\":\"Test\",\r\n    \"amount\":90000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/team-proposals",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"team-proposals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"53697ed2-1888-4840-a42c-859bc65b0e02\",\r\n    \"userId\": \"72d113c5-bdc5-4251-be76-f993f18028a9\",\r\n    \"name\": \"Calcey Technologies\",\r\n    \"description\": \"Software Company\",\r\n    \"addressId\": \"4bd503c3-d214-4b1b-8060-7131323506e4\",\r\n    \"createdAt\": \"2022-05-31T07:46:32.343Z\",\r\n    \"updatedAt\": \"2022-05-31T09:15:00.076Z\",\r\n    \"address\": {\r\n        \"id\": \"4bd503c3-d214-4b1b-8060-7131323506e4\",\r\n        \"userId\": \"72d113c5-bdc5-4251-be76-f993f18028a9\",\r\n        \"address\": \"Test Address1\",\r\n        \"city\": \"Vavuniya\",\r\n        \"country\": \"SriLanka\",\r\n        \"postCode\": \"43000\",\r\n        \"createdAt\": \"2022-05-31T07:45:30.241Z\",\r\n        \"updatedAt\": \"2022-05-31T08:59:42.374Z\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/team-proposals/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"team-proposals",
+								"53697ed2-1888-4840-a42c-859bc65b0e02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/team-proposals",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"team-proposals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/team-proposals/53697ed2-1888-4840-a42c-859bc65b0e02",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"team-proposals",
+								"53697ed2-1888-4840-a42c-859bc65b0e02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Team Proposals",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/team-proposals/my-project-proposals",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"team-proposals",
 								"my-project-proposals"
 							]
 						}
@@ -1328,7 +1892,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"page\":1,\r\n    \"limit\":10,\r\n    \"include\":\"user\"\r\n}",
+					"raw": "{\r\n    \"page\":1,\r\n    \"limit\":10,\r\n    \"where\":{\r\n        \"id\": \"deb2d6db-8b26-4a0e-89b5-2ab795d75a87\"\r\n    },\r\n    \"attributes\":\r\n    \"include\":\"user\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

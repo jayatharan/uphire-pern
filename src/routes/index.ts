@@ -12,6 +12,10 @@ import educationalDetailRoutes from "./educationalDetail.routes";
 import professionalDetailRoutes from "./professionalDetail.routes";
 import projectRoutes from "./project.routes";
 import projectProposalRoutes from "./projectProposal.routes";
+import teamRoutes from "./team.routes";
+import teamProposalRoutes from "./teamProposal.routes";
+import jobRoutes from "./job.routes";
+import jobProposalRoutes from "./jobProposal.routes";
 
 const router = express.Router();
 
@@ -30,5 +34,9 @@ router.use("/educational-details", educationalDetailRoutes);
 router.use("/professional-details", professionalDetailRoutes);
 router.use("/projects", projectRoutes);
 router.use("/project-proposals", projectProposalRoutes);
+router.use("/teams", teamRoutes);
+router.use("/team-proposals", teamProposalRoutes);
+router.use("/jobs", jobRoutes);
+router.use("/job-proposals", jobProposalRoutes);
 
 export default router;

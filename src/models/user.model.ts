@@ -82,17 +82,18 @@ module.exports = (sequelize:any, DataTypes:any) => {
             allowNull: true
         }
     }, {
-        hooks:{
-            beforeSave : async (user, options) => {
-                if(user.password){
-                    const salt = await bcrypt.genSalt(config.get("saltWorkFactor"));
-                    const hash = await bcrypt.hashSync(user.password, salt);
-                    user.password = hash;
-                }
-            }
-        },
         sequelize,
         modelName: 'User'
     });
     return User;
 }
+
+// hooks:{
+//     beforeSave : async (user, options) => {
+//         if(user.password){
+//             const salt = await bcrypt.genSalt(config.get("saltWorkFactor"));
+//             const hash = await bcrypt.hashSync(user.password, salt);
+//             user.password = hash;
+//         }
+//     }
+// },

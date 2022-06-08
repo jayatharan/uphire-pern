@@ -2,6 +2,7 @@ import db from '../models';
 import { UserDocument } from '../models/user.model';
 import bcrypt from "bcrypt";
 import { omit } from "lodash";
+import config from "config";
 
 export interface CreateSession {
     email : string;
@@ -12,6 +13,7 @@ const User = db.User;
 
 export async function createUser(input: UserDocument){
     try{
+        input.password = await hashPassword(input.password!);
         const user = await User.create(input);
         return user;
     } catch(error){
@@ -27,9 +29,14 @@ export async function validatePassword({
     const user = await getUserByEmail(email);
     if(!user) return false;
     const isValid = await comparePassword(user.password , password);
-    console.log(password);
     if (!isValid) return false
     return omit(user.toJSON(), ["password"])
+}
+
+export async function hashPassword(password:string) {
+    const salt = await bcrypt.genSalt(config.get("saltWorkFactor"));
+    const hash = await bcrypt.hashSync(password, salt);
+    return hash;
 }
 
 export async function comparePassword (password:string , check_password:string) {
@@ -51,7 +58,7 @@ export async function updateUser(userId:string, input:UserDocument){
         if(input.email) existingUser.email = input.email;
         if(input.name) existingUser.name = input.name
         if(input.role) existingUser.role = input.role
-        if(input.password) existingUser.password = input.password
+        if(input.password) existingUser.password = await hashPassword(input.password)
         if(input.alternativeEmail) existingUser.alternativeEmail = input.alternativeEmail
         if(input.mobileNumber) existingUser.mobileNumber = input.mobileNumber
         if(input.image) existingUser.image = input.image

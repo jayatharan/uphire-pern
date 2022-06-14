@@ -52,10 +52,15 @@ app.post('/upload-file', upload.single('file'), async (req:Request, res:Response
 
 app.use(adminBro.options.rootPath, adminBroRouter)
 
-db.sequelize.sync({alter:true}).then(() => {
-    app.listen(port, host, () => {
-        log.info(`Server listing at http://${host}:${port}`);
-    });
-}).catch(()=>{
-    log.error("Something went wrong");
+db.sequelize.authenticate().then(()=>{
+    log.info('Connection has been established successfully.');
+    db.sequelize.sync().then(() => {
+        app.listen(port, host, () => {
+            log.info(`Server listing at http://${host}:${port}`);
+        });
+    }).catch(()=>{
+        log.error("Database connection went wrong");
+    })
+}).catch((error:any)=>{
+    log.error(error);
 })

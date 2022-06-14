@@ -8,12 +8,24 @@ const db_host = config.get("db_host") as string;
 const db_user = config.get("db_user") as string;
 const db_database = config.get("db_database") as string;
 const db_password = config.get("db_password") as string;
+const db_port = config.get("db_port") as string;
+const db_connection_string = config.get("db_connection_string") as string;
 
 const db: any = {};
 
-const sequelize = new Sequelize(db_database, db_user, db_password, {
+const sequelize = new Sequelize({
+    database: db_database,
+    username: db_user,
+    password: db_password,
     host: db_host,
-    dialect: 'postgres'
+    port: db_port,
+    dialect: "postgres",
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false // <<<<<<< YOU NEED THIS
+        }
+    }
 })
 
 fs

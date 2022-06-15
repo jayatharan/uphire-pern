@@ -13,6 +13,8 @@ import { EducationalDetailDocument } from "../models/educationalDetail.model";
 import EducationalDetailService from "../services/educationalDetail.service";
 import { ProfessionalDetailDocument } from "../models/professionalDetail.model";
 import ProfessionalDetailService from "../services/professionalDetail.service";
+import { UserSkillDocument } from "../models/userSkill.model";
+import UserSkillService from "../services/userSkill.service";
 
 
 export async function createUserHandler(req: Request, res: Response) {
@@ -166,6 +168,30 @@ export async function getUserProfessionalDetails(req: Request, res:Response) {
         const user = get(req, "user");
         const userProfessionalDetails = (await ProfessionalDetailService.baseApi.list(undefined, undefined, {userId:user.id}, undefined, undefined,  [{association:'company', include:'address'}])).rows;
         return res.send(userProfessionalDetails);
+    }catch (e) {
+        log.error(e);
+        return res.status(400).send(e)
+    }
+}
+
+export async function addUserSkill(req: Request, res:Response) {
+    try{
+        const user = get(req, "user");
+        let data = req.body as UserSkillDocument;
+        data.userId = user.id;
+        const UserSkill = await UserSkillService.addUserSkill(data);
+        return res.send(UserSkill);
+    }catch (e) {
+        log.error(e);
+        return res.status(400).send(e)
+    }
+}
+
+export async function getUserSkills(req: Request, res:Response) {
+    try{
+        const user = get(req, "user");
+        const userSkills = (await UserSkillService.baseApi.list(undefined, undefined, {userId:user.id}, undefined, undefined,  [{association:'skill'}])).rows;
+        return res.send(userSkills);
     }catch (e) {
         log.error(e);
         return res.status(400).send(e)

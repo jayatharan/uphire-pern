@@ -37,6 +37,12 @@ export async function universalFetch(entity:string, listQueryParams:ListQueryPar
         case 'project-proposals':
             model = db.ProjectProposal;
             break;
+        case 'skills':
+            model = db.Skill;
+            break;
+        case 'user-skills':
+            model = db.UserSkill;
+            break;
         default:
             model = null;    
     }

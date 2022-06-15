@@ -12,7 +12,9 @@ import {
     addUserProfessionalDetail,
     getUserEducationalDetails,
     getUserProfessionalDetails,
-    getUserProjectDetails
+    getUserProjectDetails,
+    getUserSkills,
+    addUserSkill
 } from '../controllers/user.controller'
 import { 
     createUserSchema, updateUserSchema
@@ -89,15 +91,15 @@ router.post(
 )
 
 router.get(
-    "/professional-detail",
+    "/skills",
     requiredUser,
-    getUserProfessionalDetails
+    getUserSkills
 )
 
 router.post(
-    "/professional-detail",
+    "/skills",
     requiredUser,
-    addUserProfessionalDetail
+    addUserSkill
 )
 
 export default router;

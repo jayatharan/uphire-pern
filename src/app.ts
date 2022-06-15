@@ -54,7 +54,9 @@ app.use(adminBro.options.rootPath, adminBroRouter)
 
 db.sequelize.authenticate().then(()=>{
     log.info('Connection has been established successfully.');
-    db.sequelize.sync().then(() => {
+    db.sequelize.sync({
+        alter:true
+    }).then(() => {
         app.listen(port, host, () => {
             log.info(`Server listing at http://${host}:${port}`);
         });

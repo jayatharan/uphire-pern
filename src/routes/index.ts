@@ -16,6 +16,8 @@ import teamRoutes from "./team.routes";
 import teamProposalRoutes from "./teamProposal.routes";
 import jobRoutes from "./job.routes";
 import jobProposalRoutes from "./jobProposal.routes";
+import skillRoutes from "./skill.routes";
+import userSkillRoutes from "./userSkill.routes";
 
 const router = express.Router();
 
@@ -38,5 +40,7 @@ router.use("/teams", teamRoutes);
 router.use("/team-proposals", teamProposalRoutes);
 router.use("/jobs", jobRoutes);
 router.use("/job-proposals", jobProposalRoutes);
+router.use("/skills", skillRoutes);
+router.use("/user-skills", userSkillRoutes);
 
 export default router;

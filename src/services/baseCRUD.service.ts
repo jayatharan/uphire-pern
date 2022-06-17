@@ -5,6 +5,7 @@ export interface ListQueryParams{
     order?:any;
     attributes?:any;
     include?:any;
+    search?:string;
 }
 
 export default class baseCRUDApi<T> {

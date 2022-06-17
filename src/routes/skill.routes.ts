@@ -4,7 +4,8 @@ import {
     createSkill,
     updateSkill,
     getSkill,
-    deleteSkill
+    deleteSkill,
+    searchSkill
 } from "../controllers/skill.controller";
 import { 
     requiredUser 
@@ -28,6 +29,12 @@ router.patch(
     "/:id",
     requiredUser,
     updateSkill
+)
+
+router.get(
+    "/search",
+    requiredUser,
+    searchSkill
 )
 
 router.get(

@@ -1,10 +1,12 @@
 export default {
     host: "localhost",
     port: 1338,
-    db_host: "satao.db.elephantsql.com",
-    db_user: "fbepexcn",
-    db_database: "fbepexcn",
-    db_password: "MbsSyCtya3t7DlIB5P6238Bs9X9megrW",
+    db_host: "db-postgresql-blr1-46919-do-user-11490316-0.b.db.ondigitalocean.com",
+    db_user: "doadmin",
+    db_database: "defaultdb",
+    db_password: "AVNS_lqW1gt2kncRDplFWf2C",
+    db_port:"25060",
+    db_connection_string:"postgresql://doadmin:AVNS_lqW1gt2kncRDplFWf2C@db-postgresql-blr1-46919-do-user-11490316-0.b.db.ondigitalocean.com:25060/defaultdb?sslmode=require",
     saltWorkFactor: 10,
     privateKey: `-----BEGIN RSA PRIVATE KEY-----
     MIICWwIBAAKBgQCQNBc4IP2ewViqE+ZHbnqGoCZFyAUtrxKmO4k/boSvBisJH6BX
@@ -30,8 +32,16 @@ export default {
 // db_user: "fbepexcn",
 // db_database: "fbepexcn",
 // db_password: "MbsSyCtya3t7DlIB5P6238Bs9X9megrW",
+// db_port:"5432"
 
 //      db_host: "localhost",
 //      db_user: "uphire",
 //      db_database: "uphire",
 //      db_password: "user@123",
+//      db_port:"5432"
+
+// db_host: "db-postgresql-blr1-46919-do-user-11490316-0.b.db.ondigitalocean.com",
+// db_user: "doadmin",
+// db_database: "defaultdb",
+// db_password: "MAVNS_lqW1gt2kncRDplFWf2C ",
+// db_port:"25060"

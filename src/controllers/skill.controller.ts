@@ -4,11 +4,28 @@ import SkillService from "../services/skill.service";
 import { get } from "lodash";
 import log from "../logger";
 import { ListQueryParams } from "../services/baseCRUD.service";
+import {Op} from "sequelize";
 
 export async function getAllSkill(req: Request, res: Response) {
     try{
         let quarryParams = req.query as ListQueryParams;
         const data = await SkillService.baseApi.list(quarryParams.page, quarryParams.limit);
+        return res.send(data);
+    }catch (e) {
+        log.error(e);
+        return res.status(400).send(e)
+    }
+}
+
+export async function searchSkill(req: Request, res: Response) {
+    try{    
+        let quarryParams = req.query as ListQueryParams;
+        const where = {
+            title:{
+                [Op.iLike]:`%${quarryParams.search}%`
+            }
+        }
+        const data = await SkillService.baseApi.list(quarryParams.page, quarryParams.limit, where)
         return res.send(data);
     }catch (e) {
         log.error(e);

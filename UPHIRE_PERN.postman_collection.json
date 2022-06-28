@@ -303,6 +303,34 @@
 					"response": []
 				},
 				{
+					"name": "Add User Skill",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"skillId\":\"7ef03f36-da68-4434-a8ea-9415033d8955\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/users/skills",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"skills"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get User Professional Detail",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -332,6 +360,37 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get User Skills",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\":\"Test\",\r\n    \"image\":\"test\",\r\n    \"jobRole\":\"Test\",\r\n    \"companyId\":\"7c1dfb92-b7bc-4d7c-8421-4dbb2839bdd7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/users/skills",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"skills"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -345,7 +404,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"indran@uphire.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"raw": "{\r\n    \"email\":\"indran@calcey.com\",\r\n    \"password\":\"1234567\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -527,6 +586,234 @@
 							],
 							"path": [
 								"address",
+								"95250944-47f9-4181-ba01-e97aa06a19de"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Skill",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/skills",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"skills"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"ReactJS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/skills",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"skills"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/skills/95250944-47f9-4181-ba01-e97aa06a19de",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"skills",
+								"95250944-47f9-4181-ba01-e97aa06a19de"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/skills/95250944-47f9-4181-ba01-e97aa06a19de",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"skills",
+								"95250944-47f9-4181-ba01-e97aa06a19de"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/skills/95250944-47f9-4181-ba01-e97aa06a19de",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"skills",
+								"95250944-47f9-4181-ba01-e97aa06a19de"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Skill",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/user-skills",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user-skills"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"ReactJS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/user-skills",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user-skills"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/user-skills/95250944-47f9-4181-ba01-e97aa06a19de",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user-skills",
+								"95250944-47f9-4181-ba01-e97aa06a19de"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/user-skills/44d295e9-2123-4e8f-bfdc-a36156220c9e",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user-skills",
+								"44d295e9-2123-4e8f-bfdc-a36156220c9e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/user-skills/95250944-47f9-4181-ba01-e97aa06a19de",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user-skills",
 								"95250944-47f9-4181-ba01-e97aa06a19de"
 							]
 						}
@@ -831,7 +1118,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\":\"Test\",\r\n    \"description\":\"Test\",\r\n    \"category\":\"Test\",\r\n    \"budget\":100000,\r\n    \"hourly\":100,\r\n    \"timeline\":\"100 Days max\",\r\n    \"amount\":100000,\r\n    \"rate\":10\r\n}",
+							"raw": "{\r\n    \"title\":\"Test\",\r\n    \"description\":\"Test\",\r\n    \"type\":\"Test\",\r\n    \"companyId\":\"0cd5e321-e49f-4527-a0ef-f382d2bd074e\",\r\n    \"salary\":100000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1892,7 +2179,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"page\":1,\r\n    \"limit\":10,\r\n    \"where\":{\r\n        \"id\": \"deb2d6db-8b26-4a0e-89b5-2ab795d75a87\"\r\n    },\r\n    \"attributes\":\r\n    \"include\":\"user\"\r\n}",
+					"raw": "{\r\n    \"page\":1,\r\n    \"limit\":10,\r\n    \"where\":null,\r\n    \"attributes\":null,\r\n    \"include\":\"user\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1900,14 +2187,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{server}}/fetch/address",
+					"raw": "http://{{server}}/fetch/skills",
 					"protocol": "http",
 					"host": [
 						"{{server}}"
 					],
 					"path": [
 						"fetch",
-						"address"
+						"skills"
 					]
 				}
 			},
@@ -1919,7 +2206,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJlOGE0M2Q1LWM5OTAtNDJkYy1hYTZmLTJjZDdjMWUwZjVjYyIsIm5hbWUiOiJKYXlhdGhhcmFuIiwiZW1haWwiOiJpbmRyYW5AdXBoaXJlLmNvbSIsInJvbGUiOiJjbGllbnQiLCJlbWFpbFZlcmlmaWNhdGlvbkd1aWQiOiI5NTY1NjNmYy01MTZjLTRhYTEtOWIzOC1kNjU0NzhjYjE0ZGQiLCJlbWFpbFZlcmlmaWVkIjpmYWxzZSwiYWx0ZXJuYXRpdmVFbWFpbCI6InRlc3RAdXBoaXJlLmNvbSIsIm1vYmlsZU51bWJlciI6IjA3NzcxMjM0NTYiLCJpbWFnZSI6bnVsbCwiY3JlYXRlZEF0IjoiMjAyMi0wNi0wMlQxNToyMDowNy4yMTJaIiwidXBkYXRlZEF0IjoiMjAyMi0wNi0wMlQxNToyMDowNy4yMTJaIiwic2Vzc2lvbiI6IjI4NGM5MDY5LTg2ZjEtNGJkNi04NWFmLWQ1MTEwN2IwYzg0ZCIsImlhdCI6MTY1NDQyMzAxNywiZXhwIjoxNjU0NTA5NDE3fQ.XOlfyBKr_vD3jBvktk6hqZhVCrtfImHF8QF3JZ6GYMo",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2NTQ0MzQ0LWExYmItNGI3YS05NzllLTIxNjU0ODdmMWRhNCIsIm5hbWUiOiJKYXlhdGhhcmFuIiwiZW1haWwiOiJpbmRyYW5AdXBoaXJlLmNvbSIsInJvbGUiOiJnZW5lcmFsIiwiZW1haWxWZXJpZmljYXRpb25HdWlkIjoiNTRmYTgwNGEtMjk2Yy00NjI4LTk4ZTEtMmQ5NTE4NGY4YTk5IiwiZW1haWxWZXJpZmllZCI6ZmFsc2UsImFsdGVybmF0aXZlRW1haWwiOiJkZXYudXBoaXJlQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjA3NzY1Nzg1MDAiLCJpbWFnZSI6bnVsbCwiY3JlYXRlZEF0IjoiMjAyMi0wNi0xNFQwNTowOTo0Ny41OTVaIiwidXBkYXRlZEF0IjoiMjAyMi0wNi0xNFQwNTowOTo0Ny41OTVaIiwic2Vzc2lvbiI6Ijk3ZDkxOWUwLTIxMzgtNDE4MC04ODEwLWZlMDVjYzE3NTE1MSIsImlhdCI6MTY1NTM0MzU3NCwiZXhwIjoxNjU1NDI5OTc0fQ.DN8akyJuX3cLcjbKkjg56-Zi-7QdF_cllA9oKO2Me8g",
 				"type": "string"
 			}
 		]
@@ -1952,7 +2239,7 @@
 		},
 		{
 			"key": "digital-ocean",
-			"value": "68.183.85.171/api/new",
+			"value": "128.199.18.121/api",
 			"type": "string"
 		},
 		{

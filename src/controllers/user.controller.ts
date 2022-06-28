@@ -81,12 +81,11 @@ export async function subscribeService(req: Request, res: Response) {
 
 export async function unSubscribe(req: Request, res: Response) {
     try{
-        const service = req.params.service as unknown as string;
         const user = get(req, "user");
-        const result = await SubscriptionService.unSubscribe(user.id, service);
-        return res.send(result);
+        await SubscriptionService.unSubscribe(user.id);
+        return res.send({success:true});
     }catch (e){
-        log.error(e);
+        log.error("Error");
         return res.status(400).send(e);
     }
 }
@@ -94,7 +93,7 @@ export async function unSubscribe(req: Request, res: Response) {
 export async function getMySubscriptions(req: Request, res: Response) {
     try{
         const user = get(req, "user");
-        const subscriptions = await SubscriptionService.getUserSubscriptions(user.id);
+        const subscriptions = await SubscriptionService.getUserSubscription(user.id);
         return res.send(subscriptions);
     }catch (e){
         log.error(e);

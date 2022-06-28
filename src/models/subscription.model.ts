@@ -2,16 +2,19 @@ import {
     Model, Sequelize, UUIDV4
 } from 'sequelize';
 import { UserDocument } from "./user.model";
+import { SubscriptionPackageDocument } from './subscriptionPackage.model';
 
 export interface SubscriptionDocument{
     id:string;
     userId: string;
     user?:UserDocument;
-    service:"Project"|"Job"|"Team";
+    packageId:string;
+    package?:SubscriptionPackageDocument;
     startDate?:Date;
-    type:"Limited"| "Monthly"| "Yearly"| "Unlimited"
     endDate?:Date;
     amount:number;
+    needToPay?:number;
+    active?:boolean;
 }
 
 module.exports = (sequelize:any, DataTypes:any) => {
@@ -19,17 +22,22 @@ module.exports = (sequelize:any, DataTypes:any) => {
     implements SubscriptionDocument {
         id!:string;
         userId!: string;
-        service!:"Project"|"Job"|"Team";
-        type!:"Limited"| "Monthly"| "Yearly"| "Unlimited"
+        packageId!:string;
         startDate?: Date | undefined;
         endDate?: Date | undefined;
         amount!:number;
+        needToPay?:number;
+        active?:boolean;
 
         static associate(models:any){
             Subscription.belongsTo(models.User, {
                 foreignKey: 'userId',
                 as:'user'
             });
+            Subscription.belongsTo(models.SubscriptionPackage, {
+                foreignKey: 'packageId',
+                as:'package'
+            })
         }
     };
     Subscription.init({
@@ -43,14 +51,9 @@ module.exports = (sequelize:any, DataTypes:any) => {
             type: DataTypes.UUID,
             allowNull: false
         },
-        service: {
-            type: DataTypes.STRING,
+        packageId: {
+            type: DataTypes.UUID,
             allowNull: false
-        },
-        type: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue:"Limited"
         },
         startDate: {
             type: DataTypes.DATE,
@@ -61,7 +64,17 @@ module.exports = (sequelize:any, DataTypes:any) => {
             allowNull: true
         },
         amount: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DOUBLE,
+            allowNull: false
+        },
+        needToPay: {
+            type: DataTypes.DOUBLE,
+            defaultValue: 0.00,
+            allowNull: false
+        },
+        active:{
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
             allowNull: false
         }
     },{

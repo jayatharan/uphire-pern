@@ -61,7 +61,7 @@ router.post(
 )
 
 router.delete(
-    "/subscriptions/:service",
+    "/subscriptions",
     requiredUser,
     unSubscribe
 )
